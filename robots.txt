@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://프랑스어과외.com/sitemap.xml
