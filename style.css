@@ -1,4 +1,4 @@
-/* delf-b2.css */
+/* style.css — 2025-09-27 */
 
 /* ===========================
    Design tokens
@@ -33,9 +33,13 @@ body{
   line-height:1.7;
   -webkit-font-smoothing:antialiased;
   -moz-osx-font-smoothing:grayscale;
-  font-family:"Noto Sans KR", system-ui, -apple-system, Segoe UI, Roboto, Arial, "Apple SD Gothic Neo", "Malgun Gothic", sans-serif;
+  font-family:"Noto Sans KR", system-ui, -apple-system, "Segoe UI", Roboto, Arial,
+              "Apple SD Gothic Neo", "Malgun Gothic", sans-serif;
 }
 
+/* ===========================
+   INDEX PAGE (delf-main)
+   =========================== */
 .delf-main{
   max-width:760px;
   margin:40px auto 80px;
@@ -158,7 +162,8 @@ a:hover{opacity:.9}
   padding:14px 20px;
   border-radius:6px;
   box-shadow:var(--shadow-sm);
-  transition:transform .15s ease, box-shadow .15s ease, background .15s ease, color .15s ease, border-color .15s ease;
+  transition:transform .15s ease, box-shadow .15s ease,
+             background .15s ease, color .15s ease, border-color .15s ease;
 }
 .btn:hover{transform:translateY(-2px)}
 .btn:active{transform:translateY(0)}
@@ -172,7 +177,11 @@ a:hover{opacity:.9}
   border:2px solid rgba(255,255,255,.9);
 }
 
-/* Media queries */
+/* Intro center alignment */
+.intro{ text-align:center; margin-bottom:40px; }
+.intro h1, .intro p{ text-align:center; }
+
+/* Responsive */
 @media (max-width:640px){
   .page-title{font-size:1.6rem}
   .hero img{height:300px}
@@ -180,6 +189,113 @@ a:hover{opacity:.9}
   .cta-sub{font-size:1rem}
 }
 
-/* Intro center alignment */
-.intro{ text-align:center; margin-bottom:40px; }
-.intro h1, .intro p{ text-align:center; }
+/* ===========================
+   LINKTREE PAGE
+   (scoped to body.linktree-page)
+   =========================== */
+.linktree-page{
+  min-height:100vh;
+  background:#f7fafc;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  padding:36px 16px 28px;
+  box-sizing:border-box;
+  font-family:"Inter","Noto Sans KR",system-ui,-apple-system,"Segoe UI",
+              Roboto,"Helvetica Neue",Arial,"Apple SD Gothic Neo","Malgun Gothic",sans-serif;
+}
+
+.linktree-title{
+  text-align:center !important;
+  font-size:1.9rem;
+  font-weight:800;
+  letter-spacing:-0.01em;
+  color:#1a2a4f;
+  margin:0 0 12px;
+}
+
+.linktree-intro{
+  text-align:center !important;
+  max-width:720px;
+  margin:0 auto 28px;
+  color:#444;
+  font-size:1.02rem;
+  line-height:1.75;
+}
+
+.linktree-footer{
+  text-align:center !important;
+  margin-top:42px;
+  font-size:0.92rem;
+  color:#666;
+}
+
+/* Links container */
+.links, .linktree{
+  display:flex;
+  flex-direction:column;
+  gap:14px;
+  max-width:420px;
+  width:100%;
+  margin:0 auto;
+  /* Latin first, Hangul second → per-glyph fallback */
+  font-family:"Inter","Noto Sans KR",system-ui,-apple-system,"Segoe UI",
+               Roboto,"Helvetica Neue",Arial,"Apple SD Gothic Neo","Malgun Gothic",sans-serif;
+  -webkit-font-smoothing:auto;
+  -moz-osx-font-smoothing:auto;
+}
+
+/* Link buttons */
+.links a, .linktree a,
+.links a:link, .linktree a:link,
+.links a:visited, .linktree a:visited,
+.links a:hover, .linktree a:hover,
+.links a:active, .linktree a:active{
+  position:relative;
+  display:block;
+  padding:16px 22px;
+  border-radius:14px;
+  text-align:center;
+  text-decoration:none !important;
+  color:#fff !important;
+  background:#1e4e89; /* default; brand colors override below */
+  box-shadow:0 8px 24px rgba(0,0,0,.16);
+  transition:transform .15s ease, box-shadow .15s ease, filter .15s ease;
+  font-weight:600;                /* KR stays ~600 */
+  letter-spacing:.15px;           /* helps Latin on dark bg */
+  text-rendering:optimizeLegibility;
+}
+
+/* If Inter variable is present, nudge Latin weight slightly */
+@supports (font-variation-settings: normal){
+  .links a, .linktree a{ font-variation-settings:"wght" 650; }
+}
+
+/* Hover/active/focus */
+.links a:hover, .linktree a:hover{
+  transform:translateY(-1px);
+  box-shadow:0 10px 28px rgba(0,0,0,.2);
+  filter:brightness(.98);
+}
+.links a:active, .linktree a:active{
+  transform:translateY(0);
+  box-shadow:0 6px 16px rgba(0,0,0,.18);
+}
+.links a:focus-visible, .linktree a:focus-visible{
+  outline:3px solid #1a2a4f;
+  outline-offset:3px;
+}
+
+/* Ensure nested spans/icons inherit white */
+.links a *, .linktree a *{ color:inherit !important; }
+
+/* Brand backgrounds (AA with white) */
+.links a.site,     .linktree a.site     { background:#1e4e89 !important; }
+.links a.delf,     .linktree a.delf     { background:#c05621 !important; }
+.links a.blog,     .linktree a.blog     { background:#2c7a7b !important; }
+.links a.soomgo,   .linktree a.soomgo   { background:#553c9a !important; }
+.links a.dangeun,  .linktree a.dangeun  { background:#97266d !important; }
+.links a.naver,    .linktree a.naver    { background:#1e40af !important; }
+.links a.linkedin, .linktree a.linkedin { background:#0a66c2 !important; }
+.links a.discord,  .linktree a.discord  { background:#4338ca !important; }
+.links a.kakao,    .linktree a.kakao    { background:#7a5c00 !important; }
