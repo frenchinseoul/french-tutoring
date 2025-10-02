@@ -10,7 +10,7 @@
   <!-- Title -->
   <title>프랑스어 과외 — 온라인 & 대면 맞춤 수업 | French-in-Seoul</title>
 
-  <!-- Meta description (114 chars) -->
+  <!-- Meta description -->
   <meta name="description" content="온라인·대면 프랑스어 과외, 회화 향상, 발음 교정, DELF B2 대비 포함. 1:1·소그룹 운영, 유료 체험 수업, 성인 학습자 대상, Discord 수업 지원, 수업료 안내 제공. 9호선 염창역 인근">
 
   <!-- Open Graph -->
@@ -60,44 +60,50 @@
     });
   </script>
 
-  <!-- Structured Data (Service) -->
+  <!-- Structured Data (Organization with offers & aggregateRating) -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
-    "@type": "Service",
-    "name": "프랑스어 과외",
-    "serviceType": "French tutoring",
-    "provider": { "@type": "Organization", "name": "French-in-Seoul", "url": "https://프랑스어과외.com/" },
+    "@type": "Organization",
+    "@id": "https://프랑스어과외.com/#org",
+    "name": "French-in-Seoul",
+    "url": "https://프랑스어과외.com/",
+    "logo": "https://french-in-seoul.com/wp-content/uploads/2025/08/study-cafe.jpg",
     "areaServed": { "@type": "AdministrativeArea", "name": "Seoul, KR" },
-    "availableChannel": [
-      { "@type": "ServiceChannel", "serviceUrl": "https://french-in-seoul.com/프랑스어-수업-문의/", "name": "Online (Discord)" },
-      { "@type": "ServiceChannel", "name": "In-person (염창역 인근 스터디 카페)" }
+    "sameAs": [
+      "https://french-in-seoul.com/",
+      "https://soomgo.com/profile/users/15917526"
     ],
-    "offers": [{
-      "@type": "Offer",
-      "priceCurrency": "KRW",
-      "priceSpecification": [
-        { "@type": "UnitPriceSpecification", "name": "온라인 1:1", "price": "40000" },
-        { "@type": "UnitPriceSpecification", "name": "대면 1:1", "price": "45000" },
-        { "@type": "UnitPriceSpecification", "name": "그룹(1인)", "price": "35000" }
-      ]
-    }],
-    "aggregateRating": { "@type": "AggregateRating", "ratingValue": "5", "reviewCount": "1" }
+    "aggregateRating": { "@type": "AggregateRating", "ratingValue": "5", "reviewCount": "1" },
+    "makesOffer": [
+      {
+        "@type": "Offer",
+        "priceCurrency": "KRW",
+        "price": "40000",
+        "itemOffered": { "@type": "Service", "name": "온라인 1:1 프랑스어 과외" }
+      },
+      {
+        "@type": "Offer",
+        "priceCurrency": "KRW",
+        "price": "45000",
+        "itemOffered": { "@type": "Service", "name": "대면 1:1 프랑스어 과외 (염창역 인근)" }
+      },
+      {
+        "@type": "Offer",
+        "priceCurrency": "KRW",
+        "price": "35000",
+        "itemOffered": { "@type": "Service", "name": "소그룹 프랑스어 과외 (1인 가격)" }
+      }
+    ]
   }
   </script>
 
-  <!-- Structured Data (Single Review) -->
+  <!-- Structured Data (Single Review referencing Organization) -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "Review",
-    "itemReviewed": {
-      "@type": "Service",
-      "name": "프랑스어 과외",
-      "serviceType": "French tutoring",
-      "provider": { "@type": "Organization", "name": "French-in-Seoul", "url": "https://프랑스어과외.com/" },
-      "areaServed": { "@type": "AdministrativeArea", "name": "Seoul, KR" }
-    },
+    "itemReviewed": { "@id": "https://프랑스어과외.com/#org" },
     "author": { "@type": "Person", "name": "무**" },
     "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
     "reviewBody": "우선 선생님이 정말 상냥하시고 제가 목표했던 부분을 꼼꼼하게 잘 도와주셔서 좋았습니다! 대면 수업 장소로 이용하시는 스터디카페 스터디룸도 굉장히 쾌적하고 조용해서 수업에 집중이 잘 되었고요, 또 제가 요청드린 것뿐만 아니라 필요하다고 생각하시는 부분까지 수업 내용을 자연스럽게 확장해 주셔서 제 기대보다도 훨씬 풍성하고 유익했습니다!!",
@@ -180,28 +186,24 @@
       <p>자세한 내용은 <a href="https://french-in-seoul.com/프랑스어-교수법/">교수법</a> 페이지를 참고하세요.</p>
     </section>
 
-    <!-- 후기 -->
+    <!-- 후기 (no microdata; JSON-LD handles structured data) -->
     <section id="reviews" class="section">
       <h2 class="section-title is-blue">수강 후기</h2>
-      <div class="card" itemprop="review" itemscope itemtype="https://schema.org/Review">
+      <div class="card">
         <div style="display:flex;gap:8px;align-items:center;margin-bottom:8px">
-          <strong itemprop="author" itemscope itemtype="https://schema.org/Person">
-            <span itemprop="name">무**</span>
-          </strong>
+          <strong>무**</strong>
           <span aria-label="SoomgoPay verified" title="SoomgoPay verified" style="font-size:0.9em;color:#2f6f2f">숨고페이 거래 인증</span>
           <span style="color:#888">| 2025-10-01</span>
         </div>
 
         <div style="margin:6px 0 10px">
-          <span itemprop="reviewRating" itemscope itemtype="https://schema.org/Rating" aria-label="5 out of 5 stars" style="letter-spacing:2px">
+          <span aria-label="5 out of 5 stars" style="letter-spacing:2px">
             <span style="font-size:1.1em">★★★★★</span>
-            <meta itemprop="ratingValue" content="5.0" />
-            <meta itemprop="bestRating" content="5" />
           </span>
           <span style="margin-left:8px;color:#555">프랑스어(불어) 과외</span>
         </div>
 
-        <p itemprop="reviewBody" style="margin:0">
+        <p style="margin:0">
           우선 선생님이 정말 상냥하시고 제가 목표했던 부분을 꼼꼼하게 잘 도와주셔서 좋았습니다!
           대면 수업 장소로 이용하시는 스터디카페 스터디룸도 굉장히 쾌적하고 조용해서 수업에 집중이 잘 되었고요,
           또 제가 요청드린 것뿐만 아니라 필요하다고 생각하시는 부분까지 수업 내용을 자연스럽게 확장해 주셔서
