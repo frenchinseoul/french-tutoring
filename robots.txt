@@ -1,3 +1,7 @@
 User-agent: *
 Allow: /
+
+# Canonical (punycode)
+Sitemap: https://xn--vb0br4r90iv5cb2aj25d.com/sitemap.xml
+# Also OK (Unicode)
 Sitemap: https://프랑스어과외.com/sitemap.xml
