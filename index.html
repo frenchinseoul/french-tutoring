@@ -37,30 +37,6 @@
   gtag('config', 'G-CJ2R92X66J');
 </script>
 
-  <!-- Google Ads Conversion Tracking (href-based, class-agnostic) -->
-  <script>
-    function gtag_report_conversion(url) {
-      var callback = function () { if (typeof url !== 'undefined') window.location = url; };
-      gtag('event', 'conversion', {
-        send_to: 'AW-16905509192/MOEzCKq43p0bEMiylv0-',
-        value: 1.0,
-        currency: 'KRW',
-        event_callback: callback
-      });
-      return false;
-    }
-    document.addEventListener('DOMContentLoaded', function () {
-      var kakao = document.querySelector('a[href*="redirecting_kakao-kr"]');
-      if (kakao) {
-        kakao.addEventListener('click', function (e) { e.preventDefault(); gtag_report_conversion(this.href); });
-      }
-      var message = document.querySelector('a[href*="프랑스어-수업-문의"]');
-      if (message) {
-        message.addEventListener('click', function (e) { e.preventDefault(); gtag_report_conversion(this.href); });
-      }
-    });
-  </script>
-
   <!-- Structured Data (Organization with offers & aggregateRating) -->
   <script type="application/ld+json">
   {
