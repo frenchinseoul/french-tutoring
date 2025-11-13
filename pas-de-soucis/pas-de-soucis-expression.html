@@ -31,7 +31,25 @@
   <meta name="twitter:title" content="Dis « pas de souci » comme un natif">
   <meta name="twitter:description" content="Expression utile + intonation + mini-dialogue. Entraîne-toi et réserve un cours de conversation.">
   <meta name="twitter:image" content="https://프랑스어과외.com/pas-de-soucis/pas-de-soucis.jpeg">
-  <script defer src="/consent.js"></script>
+
+  <!-- Google Analytics (cookieless, Consent Mode default-denied) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-CJ2R92X66J"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('consent','default',{
+      ad_storage:'denied',
+      ad_user_data:'denied',
+      ad_personalization:'denied',
+      analytics_storage:'denied'
+    });
+    gtag('js', new Date());
+    gtag('config','G-CJ2R92X66J',{
+      anonymize_ip:true,
+      allow_google_signals:false,
+      allow_ad_personalization_signals:false
+    });
+  </script>
 
   <!-- JSON-LD (Article) -->
   <script type="application/ld+json">
@@ -76,6 +94,11 @@
       loading="eager" fetchpriority="high" decoding="async">
     <figcaption>Une formule simple pour calmer une situation : « Pas de souci. »</figcaption>
   </figure>
+  <div class="notice" lang="ko">
+    <strong>대한민국 거주 성인 전용</strong>
+    본 자료와 연결된 코칭은 국내 주소·재직·학적 등 거주 증빙이 가능한 만 19세 이상만 참여할 수 있으며,
+    해외 IP·미성년자 문의는 기록 후 자동 거절합니다.
+  </div>
 
   <!-- Aller à l’essentiel -->
   <section class="section" aria-labelledby="essentiel">
@@ -182,7 +205,7 @@
   <!-- CTA principal -->
   <section class="cta" aria-labelledby="cta-title">
     <h2 id="cta-title" class="cta-title">Passe à l’oral maintenant</h2>
-    <p class="cta-sub">Cours de conversation pour adultes — en personne (염창역) ou session privée en ligne (Discord après paiement).</p>
+    <p class="cta-sub">Cours réservés aux adultes résidant en Corée : séance en personne (염창역) ou session Discord privée après vérification d’une preuve de résidence/localisation.</p>
     <div class="cta-buttons">
       <a class="btn btn-white" href="https://french-in-seoul.com/프랑스어-수업-문의/">Réserver un cours de conversation</a>
       <a class="btn btn-outline" href="https://french-in-seoul.com/프랑스어-과외-요금표/">Voir les tarifs (KRW)</a>
@@ -196,13 +219,92 @@
 <!-- Footer -->
 <footer class="section" style="text-align:center">
   <p>
-    © French-in-Seoul — Contact: <a href="mailto:support@french-in-seoul.com">support@french-in-seoul.com</a> |
-    <a href="https://french-in-seoul.com/privacy-policy/">Privacy Policy</a> |
-    <a href="https://french-in-seoul.com/">Main site</a>
-    <button type="button" class="cookie-settings" data-consent-open>Cookie settings</button>
-    <br><small>Analytics only load after you grant consent.</small>
+    © French-in-Seoul · 문의: <a href="mailto:support@french-in-seoul.com">support@french-in-seoul.com</a> ·
+    <a href="https://french-in-seoul.com/개인정보-처리방침/" data-privacy-link>개인정보 처리방침</a> ·
+    <a href="https://french-in-seoul.com/">메인 사이트</a>
+  </p>
+  <p style="margin-top:8px;font-size:0.92rem;color:#4a5568">
+    대한민국 거주 증빙이 가능한 만 19세 이상만 상담·수업을 진행하며, 해외 IP·광고 제안은 기록 후 거절합니다.
+  </p>
+  <p style="margin-top:4px;font-size:0.9rem;color:#4a5568">
+    Korea-only & cookieless GA · Consent Mode 기본 거부 + 익명화된 Google Analytics 4만 사용합니다.
   </p>
 </footer>
+
+<!-- Modal: Privacy Policy -->
+<style>
+  .policy-modal{position:fixed;inset:0;display:none;z-index:9999}
+  .policy-modal.is-open{display:block}
+  .policy-modal__overlay{position:absolute;inset:0;background:rgba(0,0,0,.5)}
+  .policy-modal__dialog{
+    position:relative; margin:40px auto; background:var(--bg,#fff); color:var(--ink,#222);
+    width:min(920px,92vw); height:min(80vh,760px); border-radius:var(--radius,12px);
+    box-shadow:var(--shadow-md,0 6px 16px rgba(0,0,0,.12)); overflow:hidden; display:flex; flex-direction:column;
+  }
+  .policy-modal__header{display:flex;align-items:center;justify-content:space-between;
+    padding:14px 16px; border-bottom:1px solid var(--line,#e2e8f0)}
+  .policy-modal__title{margin:0;font-weight:800;font-size:1.05rem}
+  .policy-modal__close{background:transparent;border:0;font-size:1.6rem;line-height:1;cursor:pointer;padding:8px}
+  .policy-modal__body{flex:1;min-height:0}
+  .policy-modal__iframe{width:100%;height:100%;border:0;background:#fff}
+  @media (max-width:640px){ .policy-modal__dialog{margin:20px auto;height:min(86vh,760px)} }
+  body.modal-open{overflow:hidden}
+</style>
+
+<div id="policy-modal" class="policy-modal" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="policy-title">
+  <div class="policy-modal__overlay" data-close></div>
+  <div class="policy-modal__dialog" role="document">
+    <header class="policy-modal__header">
+      <h3 id="policy-title" class="policy-modal__title">개인정보 처리방침</h3>
+      <button type="button" class="policy-modal__close" aria-label="닫기" title="닫기" data-close>&times;</button>
+    </header>
+    <div class="policy-modal__body">
+      <iframe class="policy-modal__iframe" src="" title="개인정보 처리방침"></iframe>
+    </div>
+  </div>
+</div>
+
+<script>
+(function(){
+  var modal = document.getElementById('policy-modal');
+  if(!modal) return;
+  var iframe = modal.querySelector('iframe');
+  var closeEls = modal.querySelectorAll('[data-close]');
+  var lastFocus = null;
+  var privacyLink = document.querySelector('footer a[data-privacy-link]');
+  if(!privacyLink) return;
+
+  function openModal(url){
+    lastFocus = document.activeElement;
+    iframe.setAttribute('src', url);
+    modal.classList.add('is-open');
+    modal.setAttribute('aria-hidden','false');
+    document.body.classList.add('modal-open');
+    var closeBtn = modal.querySelector('.policy-modal__close');
+    if(closeBtn) closeBtn.focus();
+  }
+  function closeModal(){
+    modal.classList.remove('is-open');
+    modal.setAttribute('aria-hidden','true');
+    document.body.classList.remove('modal-open');
+    iframe.setAttribute('src','');
+    if(lastFocus) lastFocus.focus();
+  }
+
+  privacyLink.addEventListener('click', function(e){
+    e.preventDefault();
+    openModal(this.href);
+  });
+
+  closeEls.forEach(function(el){ el.addEventListener('click', closeModal); });
+  document.addEventListener('keydown', function(e){
+    if(e.key === 'Escape' && modal.classList.contains('is-open')) closeModal();
+  });
+  modal.addEventListener('click', function(e){
+    if(e.target && e.target.hasAttribute('data-close')) closeModal();
+  });
+})();
+</script>
 
 <!-- Schema bundle (moved inside body for validity) -->
 <script type="application/ld+json">
