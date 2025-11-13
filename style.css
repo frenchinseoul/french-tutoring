@@ -190,6 +190,78 @@ a:hover{opacity:.9}
 }
 
 /* ===========================
+   Consent banner & controls
+   =========================== */
+.consent-banner{
+  position:fixed;
+  right:20px;
+  bottom:20px;
+  width:min(360px, calc(100vw - 32px));
+  background:#fff;
+  border-radius:var(--radius-sm);
+  box-shadow:var(--shadow-md);
+  padding:20px;
+  border:1px solid var(--line);
+  transform:translateY(24px);
+  opacity:0;
+  transition:opacity .2s ease, transform .2s ease;
+  z-index:9999;
+}
+.consent-banner.is-visible{
+  opacity:1;
+  transform:translateY(0);
+}
+.consent-banner__title{
+  margin:0 0 8px;
+  font-size:1.1rem;
+}
+.consent-banner__actions{
+  display:flex;
+  gap:12px;
+  margin:18px 0 10px;
+}
+.consent-banner__actions .btn{
+  flex:1;
+  min-width:auto;
+  font-size:.95rem;
+  padding:12px 10px;
+}
+.consent-banner .btn-outline{
+  color:var(--ink);
+  border-color:var(--line);
+  background:#fff;
+  box-shadow:none;
+}
+.consent-banner__links{
+  margin:0;
+  font-size:.9rem;
+}
+.cookie-settings{
+  border:1px solid currentColor;
+  background:transparent;
+  border-radius:20px;
+  padding:6px 14px;
+  font-size:.85rem;
+  cursor:pointer;
+  margin-left:8px;
+}
+.cookie-settings:hover{
+  opacity:.85;
+}
+
+@media (max-width:640px){
+  .consent-banner{
+    left:16px;
+    right:16px;
+    bottom:16px;
+    width:auto;
+  }
+  .consent-banner__actions{
+    flex-direction:column;
+  }
+}
+
+/* ===========================
    LINKTREE PAGE
    (scoped to body.linktree-page)
    =========================== */
