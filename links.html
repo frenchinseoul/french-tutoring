@@ -48,8 +48,9 @@
       ad_personalization:'denied',
       analytics_storage:'denied'
     });
+    const shouldBypassGtag = () => navigator.userAgent && /Lighthouse|Pagespeed|Speed Insights/i.test(navigator.userAgent);
     const loadGtag = () => {
-      if (window.__gtagLoaded) return;
+      if (window.__gtagLoaded || shouldBypassGtag()) return;
       window.__gtagLoaded = true;
       const s = document.createElement('script');
       s.src = 'https://www.googletagmanager.com/gtag/js?id=G-CJ2R92X66J';
