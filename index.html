@@ -37,7 +37,7 @@
   <meta name="twitter:description" content="온라인·대면 프랑스어 과외, 회화 향상, 발음 교정, DELF B2 대비 포함. 1:1·소그룹 운영, 유료 체험 수업, 성인 학습자 대상, Discord 수업 지원, 수업료 안내 제공. 9호선 염창역 인근">
   <meta name="twitter:image" content="https://프랑스어과외.com/image/study-cafe.avif">
 
-  <!-- Google Analytics (cookieless, lazy-loaded to reduce main-thread impact) -->
+  <!-- Google Analytics (cookieless, interaction-triggered to avoid main-thread reflow) -->
   <script>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
@@ -61,14 +61,14 @@
         allow_ad_personalization_signals: false
       });
     };
-    const scheduleGtag = () => {
-      if ('requestIdleCallback' in window) {
-        requestIdleCallback(loadGtag, { timeout: 2000 });
-      } else {
-        setTimeout(loadGtag, 1200);
-      }
+    const interactionEvents = ['pointerdown','keydown','touchstart','scroll'];
+    const passiveOnce = { passive:true, once:true };
+    const onFirstInteraction = () => {
+      interactionEvents.forEach((evt) => window.removeEventListener(evt, onFirstInteraction, passiveOnce));
+      loadGtag();
     };
-    window.addEventListener('load', scheduleGtag, { once: true });
+    interactionEvents.forEach((evt) => window.addEventListener(evt, onFirstInteraction, passiveOnce));
+    setTimeout(loadGtag, 15000);
   </script>
 
   <!-- Structured Data (Organization with offers & aggregateRating) -->

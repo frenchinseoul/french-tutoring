@@ -35,7 +35,7 @@
   <meta name="twitter:description" content="FLE·CEFR·DELF 기초 안내와 성인 대상 프랑스어 수업 가이드. 온라인·대면 수업, 염창역 인근.">
   <meta name="twitter:image" content="https://프랑스어과외.com/image/french-lessons-guide-korea-hero-fr-flag-speech-bubble.jpg">
 
-  <!-- Google Analytics (cookieless, lazy-loaded to reduce main-thread impact) -->
+  <!-- Google Analytics (cookieless, interaction-triggered to avoid main-thread reflow) -->
   <script>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
@@ -59,14 +59,14 @@
         allow_ad_personalization_signals:false
       });
     };
-    const scheduleGtag = () => {
-      if ('requestIdleCallback' in window) {
-        requestIdleCallback(loadGtag, { timeout: 2000 });
-      } else {
-        setTimeout(loadGtag, 1200);
-      }
+    const interactionEvents = ['pointerdown','keydown','touchstart','scroll'];
+    const passiveOnce = { passive:true, once:true };
+    const onFirstInteraction = () => {
+      interactionEvents.forEach((evt) => window.removeEventListener(evt, onFirstInteraction, passiveOnce));
+      loadGtag();
     };
-    window.addEventListener('load', scheduleGtag, { once:true });
+    interactionEvents.forEach((evt) => window.addEventListener(evt, onFirstInteraction, passiveOnce));
+    setTimeout(loadGtag, 15000);
   </script>
 
   <!-- Structured Data (Organization) -->

@@ -35,7 +35,7 @@
   <meta name="twitter:description" content="프랑스 원어민 강사가 Discord로 진행하는 온라인 프랑스어 과외. 회화, 발음, DELF 대비까지 한 번에.">
   <meta name="twitter:image" content="https://프랑스어과외.com/image/discord-site.avif">
 
-  <!-- Google Analytics (cookieless, lazy-loaded to reduce main-thread impact) -->
+  <!-- Google Analytics (cookieless, interaction-triggered to avoid main-thread reflow) -->
   <script>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
@@ -59,14 +59,14 @@
         allow_ad_personalization_signals:false
       });
     };
-    const scheduleGtag = () => {
-      if ('requestIdleCallback' in window) {
-        requestIdleCallback(loadGtag, { timeout: 2000 });
-      } else {
-        setTimeout(loadGtag, 1200);
-      }
+    const interactionEvents = ['pointerdown','keydown','touchstart','scroll'];
+    const passiveOnce = { passive:true, once:true };
+    const onFirstInteraction = () => {
+      interactionEvents.forEach((evt) => window.removeEventListener(evt, onFirstInteraction, passiveOnce));
+      loadGtag();
     };
-    window.addEventListener('load', scheduleGtag, { once:true });
+    interactionEvents.forEach((evt) => window.addEventListener(evt, onFirstInteraction, passiveOnce));
+    setTimeout(loadGtag, 15000);
   </script>
 
   <!-- Styles -->
