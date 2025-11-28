@@ -20,6 +20,34 @@ const PRECACHE_URLS = [
   '/site.webmanifest'
 ];
 
+// Static assets we want to serve with a long-lived, immutable cache header
+const IMMUTABLE_PATHS = new Set([
+  '/style.css',
+  '/sw-register.js',
+  '/sw.js',
+  '/image/study-cafe-1400.jpg',
+  '/image/study-cafe-900.jpg',
+  '/image/study-cafe-600.jpg',
+  '/image/discord-site-1400.jpg',
+  '/image/discord-site-900.jpg',
+  '/image/discord-site-700.jpg',
+  '/image/portrait-200.jpg',
+  '/image/portrait-120.jpg',
+  '/favicons/favicon-32x32.png',
+  '/favicons/favicon-96x96.png'
+]);
+
+const cacheWithImmutableHeader = (request, response) => {
+  if (!response || !IMMUTABLE_PATHS.has(new URL(request.url).pathname)) return response;
+  const headers = new Headers(response.headers);
+  headers.set('Cache-Control', 'public, max-age=31536000, immutable');
+  return new Response(response.clone().body, {
+    status: response.status,
+    statusText: response.statusText,
+    headers
+  });
+};
+
 self.addEventListener('install', (event) => {
   event.waitUntil(
     caches.open(CACHE_NAME).then((cache) => cache.addAll(PRECACHE_URLS))
@@ -50,7 +78,7 @@ self.addEventListener('fetch', (event) => {
 
   event.respondWith(
     caches.match(request).then((cached) => {
-      if (cached) return cached;
+      if (cached) return cacheWithImmutableHeader(request, cached);
 
       return fetch(request).then((response) => {
         if (!response || response.status !== 200 || response.type !== 'basic') {
@@ -58,7 +86,7 @@ self.addEventListener('fetch', (event) => {
         }
         const responseToCache = response.clone();
         caches.open(CACHE_NAME).then((cache) => cache.put(request, responseToCache));
-        return response;
+        return cacheWithImmutableHeader(request, response);
       }).catch(() => cached);
     })
   );
