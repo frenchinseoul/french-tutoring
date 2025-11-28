@@ -14,7 +14,9 @@
   <link rel="icon" type="image/png" sizes="16x16" href="/favicons/favicon-16x16.png">
   <link rel="manifest" href="/site.webmanifest">
   <link rel="icon" type="image/x-icon" href="/favicons/favicon.ico">
-  <link rel="stylesheet" href="/style.css?v=2025-09-27">
+  <link rel="preload" href="/style.css?v=2025-09-27" as="style">
+  <link rel="stylesheet" href="/style.css?v=2025-09-27" media="print" onload="this.media='all'">
+  <noscript><link rel="stylesheet" href="/style.css?v=2025-09-27"></noscript>
   <script src="/sw-register.js" defer></script>
 
   <!-- Open Graph -->
