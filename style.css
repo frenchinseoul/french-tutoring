@@ -147,6 +147,11 @@ body{
   font-style:italic;
   text-align:center; /* ensure centered caption */
 }
+.hero--secondary img{
+  height:auto;
+  max-height:none;
+  object-fit:contain;
+}
 
 /* Lists */
 .bullets,
