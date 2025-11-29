@@ -25,14 +25,10 @@ const IMMUTABLE_PATHS = new Set([
   '/style.css',
   '/sw-register.js',
   '/sw.js',
-  '/image/study-cafe-1400.jpg',
-  '/image/study-cafe-900.jpg',
-  '/image/study-cafe-600.jpg',
-  '/image/discord-site-1400.jpg',
-  '/image/discord-site-900.jpg',
-  '/image/discord-site-700.jpg',
-  '/image/portrait-200.jpg',
-  '/image/portrait-120.jpg',
+  '/image/study-cafe.avif',
+  '/image/discord-site.avif',
+  '/image/portrait.avif',
+  '/image/french-lessons-guide-korea-hero-fr-flag-speech-bubble.avif',
   '/favicons/favicon-32x32.png',
   '/favicons/favicon-96x96.png'
 ]);
