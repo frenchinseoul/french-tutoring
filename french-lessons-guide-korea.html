@@ -355,5 +355,27 @@
 </script>
 
 
+<script>
+(function(){
+  var navLinks = document.querySelectorAll('.site-nav a');
+  if(!navLinks.length) return;
+  var currentPath = location.pathname.replace(/index\.html$/, '').replace(/\/$/, '/');
+  navLinks.forEach(function(link){
+    var url;
+    try { url = new URL(link.getAttribute('href'), location.origin); } catch (e) { return; }
+    var linkPath = url.pathname.replace(/index\.html$/, '').replace(/\/$/, '/');
+    if(linkPath === currentPath){
+      link.classList.add('is-active');
+      link.setAttribute('aria-current','page');
+    }
+    link.addEventListener('click', function(){
+      navLinks.forEach(function(l){ l.classList.remove('is-active'); l.removeAttribute('aria-current'); });
+      this.classList.add('is-active');
+      this.setAttribute('aria-current','page');
+    });
+  });
+})();
+</script>
+
 </body>
 </html>

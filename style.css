@@ -100,6 +100,12 @@ body{
   border-color:#c9d9ff;
   box-shadow:0 6px 16px rgba(15,23,42,.12);
 }
+.site-nav a.is-active{
+  background:linear-gradient(135deg,#1f3a8a 0%,#2563eb 100%);
+  color:#fff;
+  border-color:#1d4ed8;
+  box-shadow:0 10px 22px rgba(37,99,235,.25);
+}
 .site-nav a:focus-visible{
   outline:2px solid var(--blue);
   outline-offset:2px;
