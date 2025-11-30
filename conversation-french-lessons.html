@@ -162,34 +162,33 @@
     </section>
   </main>
 
-  <footer class="section" style="text-align:center">
-    <p>
-      © French-in-Seoul · 문의: <a href="mailto:support@french-in-seoul.com">support@french-in-seoul.com</a> ·
-      <a href="https://french-in-seoul.com/개인정보-처리방침/" data-privacy-link>개인정보 처리방침</a> ·
-      <a href="https://french-in-seoul.com/">메인 사이트</a>
-    </p>
-    <p style="margin-top:4px;font-size:0.9rem;color:#4a5568">
-      Korea-only & cookieless GA · Consent Mode 기본 거부 + 익명화된 Google Analytics 4만 사용합니다.
-    </p>
+  <footer class="site-footer" role="contentinfo">
+    <div class="site-footer__inner">
+      <p><strong>상호</strong>: 프렌치인서울 | <strong>대표</strong>: <span data-nosnippet>Weidert Cedric Gabriel</span> | <strong>사업자등록번호</strong>: 108-28-52316</p>
+      <p><strong>주소</strong>: 서울 강서구 공항대로 525 비원오피스텔 1501 가-297호 | <strong>전화</strong>: <a href="tel:+821082979843">+82-10-8297-9843</a> | <strong>이메일</strong>: <a href="mailto:support@french-in-seoul.com">support@french-in-seoul.com</a></p>
+      <p><strong>호스팅</strong>: WordPress.com | <strong><a href="http://www.ftc.go.kr/bizCommPop.do?wrkr_no=1082852316" target="_blank" rel="noreferrer noopener">사업자정보확인</a></strong></p>
+      <p><a href="https://french-in-seoul.com/이용약관/">이용약관</a> · <a class="js-policy" data-policy="refund" href="https://french-in-seoul.com/환불-취소정책/">환불/취소정책</a> · <a class="js-policy" data-policy="privacy" href="https://french-in-seoul.com/개인정보-처리방침/">개인정보처리방침</a></p>
+    </div>
   </footer>
 
-<!-- Modal: Privacy Policy -->
+<!-- Modal: Privacy/Refund Policies -->
 <style>
+  .site-footer{margin-top:60px;border-top:1px solid var(--line,#e2e8f0);background:rgba(255,255,255,.95);box-shadow:0 -2px 12px rgba(0,0,0,.04)}
+  .site-footer__inner{max-width:900px;margin:0 auto;padding:24px 20px 32px;color:#334155;line-height:1.7}
+  .site-footer p{margin:6px 0}
+  .site-footer a{color:#1e40af;text-decoration:none}
+  .site-footer a:hover{text-decoration:underline}
+
   .policy-modal{position:fixed;inset:0;display:none;z-index:9999}
   .policy-modal.is-open{display:block}
   .policy-modal__overlay{position:absolute;inset:0;background:rgba(0,0,0,.5)}
-  .policy-modal__dialog{
-    position:relative; margin:40px auto; background:var(--bg,#fff); color:var(--ink,#222);
-    width:min(920px,92vw); height:min(80vh,760px); border-radius:var(--radius,12px);
-    box-shadow:var(--shadow-md,0 6px 16px rgba(0,0,0,.12)); overflow:hidden; display:flex; flex-direction:column;
-  }
-  .policy-modal__header{display:flex;align-items:center;justify-content:space-between;
-    padding:14px 16px; border-bottom:1px solid var(--line,#e2e8f0)}
+  .policy-modal__dialog{position:relative;margin:40px auto;background:var(--bg,#fff);color:var(--ink,#222);width:min(920px,92vw);height:min(80vh,760px);border-radius:12px;box-shadow:0 6px 16px rgba(0,0,0,.12);overflow:hidden;display:flex;flex-direction:column}
+  .policy-modal__header{display:flex;align-items:center;justify-content:space-between;padding:14px 16px;border-bottom:1px solid var(--line,#e2e8f0)}
   .policy-modal__title{margin:0;font-weight:800;font-size:1.05rem}
   .policy-modal__close{background:transparent;border:0;font-size:1.6rem;line-height:1;cursor:pointer;padding:8px}
   .policy-modal__body{flex:1;min-height:0}
   .policy-modal__iframe{width:100%;height:100%;border:0;background:#fff}
-  @media (max-width:640px){ .policy-modal__dialog{margin:20px auto;height:min(86vh,760px)} }
+  @media (max-width:640px){.policy-modal__dialog{margin:20px auto;height:min(86vh,760px)}}
   body.modal-open{overflow:hidden}
 </style>
 
@@ -197,11 +196,11 @@
   <div class="policy-modal__overlay" data-close></div>
   <div class="policy-modal__dialog" role="document">
     <header class="policy-modal__header">
-      <h3 id="policy-title" class="policy-modal__title">개인정보 처리방침</h3>
-      <button type="button" class="policy-modal__close" aria-label="닫기" title="닫기" data-close>&times;</button>
+      <h3 id="policy-title" class="policy-modal__title">Privacy Policy</h3>
+      <button type="button" class="policy-modal__close" aria-label="Close" title="Close" data-close>&times;</button>
     </header>
     <div class="policy-modal__body">
-      <iframe class="policy-modal__iframe" src="" title="개인정보 처리방침"></iframe>
+      <iframe class="policy-modal__iframe" src="" title="Policy"></iframe>
     </div>
   </div>
 </div>
@@ -213,8 +212,8 @@
   var iframe = modal.querySelector('iframe');
   var closeEls = modal.querySelectorAll('[data-close]');
   var lastFocus = null;
-  var privacyLink = document.querySelector('footer a[data-privacy-link]');
-  if(!privacyLink) return;
+  var policyLinks = document.querySelectorAll('footer a.js-policy');
+  if(!policyLinks.length) return;
 
   function openModal(url){
     lastFocus = document.activeElement;
@@ -223,7 +222,7 @@
     modal.setAttribute('aria-hidden','false');
     document.body.classList.add('modal-open');
     var closeBtn = modal.querySelector('.policy-modal__close');
-    if(closeBtn) closeBtn.focus();
+    if (closeBtn) closeBtn.focus();
   }
   function closeModal(){
     modal.classList.remove('is-open');
@@ -233,11 +232,12 @@
     if(lastFocus) lastFocus.focus();
   }
 
-  privacyLink.addEventListener('click', function(e){
-    e.preventDefault();
-    openModal(this.href);
+  policyLinks.forEach(function(link){
+    link.addEventListener('click', function(e){
+      e.preventDefault();
+      openModal(this.href);
+    });
   });
-
   closeEls.forEach(function(el){ el.addEventListener('click', closeModal); });
   document.addEventListener('keydown', function(e){
     if(e.key === 'Escape' && modal.classList.contains('is-open')) closeModal();
