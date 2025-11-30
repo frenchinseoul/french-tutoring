@@ -117,6 +117,7 @@
     "@type": "Review",
     "itemReviewed": { "@id": "https://프랑스어과외.com/#org" },
     "author": { "@type": "Person", "name": "무**" },
+    "contentLocation": { "@type": "Country", "name": "Republic of Korea" },
     "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
     "reviewBody": "우선 선생님이 정말 상냥하시고 제가 목표했던 부분을 꼼꼼하게 잘 도와주셔서 좋았습니다! 대면 수업 장소로 이용하시는 스터디카페 스터디룸도 굉장히 쾌적하고 조용해서 수업에 집중이 잘 되었고요, 또 제가 요청드린 것뿐만 아니라 필요하다고 생각하시는 부분까지 수업 내용을 자연스럽게 확장해 주셔서 제 기대보다도 훨씬 풍성하고 유익했습니다!!",
     "inLanguage": "ko",
@@ -192,6 +193,7 @@
   {
     "@context": "https://schema.org",
     "@type": "FAQPage",
+    "contentLocation": { "@type": "Country", "name": "Republic of Korea" },
     "mainEntity": [
       {
         "@type": "Question",
@@ -571,12 +573,13 @@
   var navLinks = document.querySelectorAll('.site-nav a');
   if(!navLinks.length) return;
   var currentPath = location.pathname.replace(/index\.html$/, '').replace(/\/$/, '/');
+  var isHome = currentPath === '/';
   navLinks.forEach(function(link){
     var url;
     try { url = new URL(link.getAttribute('href'), location.origin); } catch (e) { return; }
     var linkPath = url.pathname.replace(/index\.html$/, '').replace(/\/$/, '/');
     var linkDir = linkPath.replace(/[^\/]+\.html$/, '');
-    var isCurrent = linkPath === currentPath || (linkDir && linkDir === currentPath);
+    var isCurrent = !isHome && (linkPath === currentPath || (linkDir && linkDir === currentPath));
     if(isCurrent){
       link.classList.add('is-active');
       link.setAttribute('aria-current','page');

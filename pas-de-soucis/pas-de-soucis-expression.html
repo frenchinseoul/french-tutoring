@@ -76,6 +76,7 @@
     "@type":"Article",
     "headline":"Dis « pas de souci » comme un natif",
     "inLanguage":"fr",
+    "contentLocation":{"@type":"Country","name":"Republic of Korea"},
     "about":["Conversation française","Intonation","Expression utile"],
     "author":{"@type":"Person","name":"Cédric"},
     "publisher":{"@type":"Organization","name":"French-In-Seoul.com"},
@@ -335,6 +336,7 @@
 {
   "@context":"https://schema.org",
   "@type":"BreadcrumbList",
+  "contentLocation":{"@type":"Country","name":"Republic of Korea"},
   "itemListElement":[
     {"@type":"ListItem","position":1,"name":"Accueil","item":"https://프랑스어과외.com/"},
     {"@type":"ListItem","position":2,"name":"Pas de souci (expression)","item":"https://프랑스어과외.com/pas-de-soucis/pas-de-soucis-expression.html"}
@@ -346,6 +348,7 @@
 {
   "@context":"https://schema.org",
   "@type":"FAQPage",
+  "contentLocation":{"@type":"Country","name":"Republic of Korea"},
   "mainEntity":[
     {
       "@type":"Question",
@@ -370,6 +373,7 @@
 {
   "@context":"https://schema.org",
   "@type":"ItemList",
+  "contentLocation":{"@type":"Country","name":"Republic of Korea"},
       "itemListElement":[
         {
           "@type":"AudioObject",
@@ -396,12 +400,13 @@
   var navLinks = document.querySelectorAll('.site-nav a');
   if(!navLinks.length) return;
   var currentPath = location.pathname.replace(/index\.html$/, '').replace(/\/$/, '/');
+  var isHome = currentPath === '/';
   navLinks.forEach(function(link){
     var url;
     try { url = new URL(link.getAttribute('href'), location.origin); } catch (e) { return; }
     var linkPath = url.pathname.replace(/index\.html$/, '').replace(/\/$/, '/');
     var linkDir = linkPath.replace(/[^\/]+\.html$/, '');
-    var isCurrent = linkPath === currentPath || (linkDir && linkDir === currentPath);
+    var isCurrent = !isHome && (linkPath === currentPath || (linkDir && linkDir === currentPath));
     if(isCurrent){
       link.classList.add('is-active');
       link.setAttribute('aria-current','page');
