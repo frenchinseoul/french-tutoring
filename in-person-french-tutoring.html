@@ -111,7 +111,7 @@
         <a href="/in-person-french-tutoring.html">대면 수업</a>
         <a href="/conversation-french-lessons.html">회화 집중</a>
         <a href="/french-lessons-guide-korea.html">수업 가이드</a>
-        <a href="/pas-de-soucis/pas-de-soucis-expression.html">Pas de soucis</a>
+        <a href="/pas-de-soucis/pas-de-soucis-expression.html">Pas de souci</a>
       </nav>
     </div>
   </header>
@@ -264,7 +264,9 @@
     var url;
     try { url = new URL(link.getAttribute('href'), location.origin); } catch (e) { return; }
     var linkPath = url.pathname.replace(/index\.html$/, '').replace(/\/$/, '/');
-    if(linkPath === currentPath){
+    var linkDir = linkPath.replace(/[^\/]+\.html$/, '');
+    var isCurrent = linkPath === currentPath || (linkDir && linkDir === currentPath);
+    if(isCurrent){
       link.classList.add('is-active');
       link.setAttribute('aria-current','page');
     }
