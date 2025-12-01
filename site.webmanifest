@@ -3,12 +3,12 @@
   "short_name": "프랑스어 과외",
   "icons": [
     {
-      "src": "/favicons/logo96.png",
+      "src": "/favicons/logo_bleu_96.png",
       "sizes": "96x96",
       "type": "image/png"
     },
     {
-      "src": "/favicons/logo144.png",
+      "src": "/favicons/logo_bleu_144.png",
       "sizes": "144x144",
       "type": "image/png"
     }

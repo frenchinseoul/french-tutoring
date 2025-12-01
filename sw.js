@@ -13,6 +13,9 @@ const PRECACHE_URLS = [
   '/image/study-cafe.avif',
   '/image/discord-site.avif',
   '/image/portrait.avif',
+  '/favicons/logo_bleu_48.png',
+  '/favicons/logo_bleu_96.png',
+  '/favicons/logo_bleu_144.png',
   '/favicons/favicon-96x96.png',
   '/favicons/android-chrome-192x192.png',
   '/favicons/apple-touch-icon.png',
@@ -30,7 +33,10 @@ const IMMUTABLE_PATHS = new Set([
   '/image/portrait.avif',
   '/image/french-lessons-guide-korea-hero-fr-flag-speech-bubble.avif',
   '/favicons/favicon-32x32.png',
-  '/favicons/favicon-96x96.png'
+  '/favicons/favicon-96x96.png',
+  '/favicons/logo_bleu_48.png',
+  '/favicons/logo_bleu_96.png',
+  '/favicons/logo_bleu_144.png'
 ]);
 
 const cacheWithImmutableHeader = (request, response) => {
