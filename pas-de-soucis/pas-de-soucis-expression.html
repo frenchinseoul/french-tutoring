@@ -1,6 +1,19 @@
 <!doctype html>
 <html lang="fr">
 <head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-CJ2R92X66J"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('consent','default',{
+      ad_storage:'denied',
+      ad_user_data:'denied',
+      ad_personalization:'denied',
+      analytics_storage:'denied'
+    });
+  </script>
+
   <meta charset="utf-8">
   <title>Dis « pas de souci » comme un natif | 프랑스어과외.com</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -37,43 +50,8 @@
   <link rel="preload" href="/style.css" as="style">
   <link rel="stylesheet" href="/style.css">
   <script src="/sw-register.js" defer></script>
-
-  <!-- Google Analytics (cookieless, interaction-triggered to avoid main-thread reflow) -->
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('consent','default',{
-      ad_storage:'denied',
-      ad_user_data:'denied',
-      ad_personalization:'denied',
-      analytics_storage:'denied'
-    });
-    const shouldBypassGtag = () => navigator.userAgent && /Lighthouse|Pagespeed|Speed Insights/i.test(navigator.userAgent);
-    const loadGtag = () => {
-      if (window.__gtagLoaded || shouldBypassGtag()) return;
-      window.__gtagLoaded = true;
-      const s = document.createElement('script');
-      s.src = 'https://www.googletagmanager.com/gtag/js?id=G-CJ2R92X66J';
-      s.async = true;
-      document.head.appendChild(s);
-      gtag('js', new Date());
-      gtag('config','G-CJ2R92X66J',{
-        anonymize_ip:true,
-        allow_google_signals:false,
-        allow_ad_personalization_signals:false
-      });
-    };
-    const interactionEvents = ['pointerdown','keydown','touchstart','scroll'];
-    const passiveOnce = { passive:true, once:true };
-    const onFirstInteraction = () => {
-      interactionEvents.forEach((evt) => window.removeEventListener(evt, onFirstInteraction, passiveOnce));
-      loadGtag();
-    };
-    interactionEvents.forEach((evt) => window.addEventListener(evt, onFirstInteraction, passiveOnce));
-    setTimeout(loadGtag, 15000);
-  </script>
-
-  <!-- JSON-LD (Article) -->
+  <script src="/consent.js" defer></script>
+<!-- JSON-LD (Article) -->
   <script type="application/ld+json">
   {
     "@context":"https://schema.org",
