@@ -289,6 +289,87 @@ a:hover{opacity:.9}
   border:2px solid rgba(255,255,255,.9);
 }
 
+.hero-cta{
+  margin:18px auto 30px;
+  padding:18px 20px;
+  background:linear-gradient(135deg,#f8fbff 0%,#eef2ff 100%);
+  border:1px solid #dfe7f3;
+  border-radius:var(--radius-sm);
+  box-shadow:var(--shadow-sm);
+  max-width:920px;
+}
+.hero-cta__pills{
+  display:flex;
+  flex-wrap:wrap;
+  gap:10px;
+  justify-content:center;
+  list-style:none;
+  padding:0;
+  margin:0 0 12px;
+}
+.hero-cta__pill{
+  padding:8px 12px;
+  border-radius:999px;
+  background:#fff;
+  border:1px solid #d7e3f7;
+  color:#0f172a;
+  font-weight:700;
+  font-size:0.95rem;
+  line-height:1.4;
+  box-shadow:0 2px 6px rgba(15,23,42,.08);
+}
+.hero-cta__buttons{
+  display:flex;
+  flex-wrap:wrap;
+  gap:12px;
+  justify-content:center;
+}
+.hero-cta__btn{
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  padding:12px 16px;
+  border-radius:8px;
+  text-decoration:none;
+  font-weight:800;
+  border:2px solid var(--blue);
+  color:#fff;
+  background:var(--blue);
+  box-shadow:var(--shadow-sm);
+  transition:transform .15s ease, box-shadow .15s ease, background .15s ease, color .15s ease;
+}
+.hero-cta__btn:hover{transform:translateY(-2px)}
+.hero-cta__btn:active{transform:translateY(0)}
+.hero-cta__btn--ghost{
+  background:#fff;
+  color:var(--blue);
+}
+
+.service-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+  gap:14px;
+  margin-top:14px;
+}
+.service-card{
+  padding:16px;
+  border-radius:var(--radius-sm);
+  border:1px solid var(--line);
+  box-shadow:var(--shadow-sm);
+  background:#fff;
+}
+.service-card h3{
+  margin:0 0 8px;
+  font-size:1.05rem;
+}
+.service-card p{
+  margin:0 0 8px;
+}
+.service-card ul{
+  padding-left:18px;
+  margin:0;
+}
+
 /* Intro center alignment */
 .intro{ text-align:center; margin-bottom:40px; }
 .intro h1, .intro p{ text-align:center; }
@@ -299,6 +380,8 @@ a:hover{opacity:.9}
   .hero img{height:300px}
   .cta-title{font-size:1.4rem}
   .cta-sub{font-size:1rem}
+  .hero-cta{padding:14px 12px}
+  .hero-cta__btn{width:100%; justify-content:center}
 }
 
 /* ===========================
