@@ -1,3 +1,17 @@
 .DS_Store
 docs/
 data/
+tools/seo/
+archives/
+archives/*.zip
+tools/seo/*/.env
+tools/seo/*/outputs/
+tools/seo/*/client_secret*.json
+tools/seo/*/credentials*.json
+tools/seo/*/token*.json
+tools/seo/*/service-account*.json
+tools/seo/*/service_account*.json
+tools/seo/*/*.secret.json
+
+# Local English translation drafts
+en/

@@ -1,4 +1,4 @@
-const CACHE_NAME = 'fis-static-v1';
+const CACHE_NAME = 'fis-static-v2026-06-14-consent';
 const PRECACHE_URLS = [
   '/',
   '/index.html',
@@ -10,6 +10,7 @@ const PRECACHE_URLS = [
   '/pas-de-soucis/pas-de-soucis-expression.html',
   '/style.css',
   '/style.css?v=2025-09-27',
+  '/consent.js',
   '/image/study-cafe.avif',
   '/image/discord-site.avif',
   '/image/portrait.avif',
@@ -28,6 +29,7 @@ const IMMUTABLE_PATHS = new Set([
   '/style.css',
   '/sw-register.js',
   '/sw.js',
+  '/consent.js',
   '/image/study-cafe.avif',
   '/image/discord-site.avif',
   '/image/portrait.avif',

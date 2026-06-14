@@ -4,6 +4,7 @@
   var CONSENT_GRANTED = 'granted';
   var CONSENT_DENIED = 'denied';
   var banner = null;
+  var settingsButton = null;
 
   function getStoredConsent(){
     try { return localStorage.getItem(STORAGE_KEY); }
@@ -41,6 +42,7 @@
     setStoredConsent(value);
     updateConsent(value);
     if (value === CONSENT_GRANTED) bootAnalytics();
+    addSettingsButton();
     hideBanner();
   }
 
@@ -55,19 +57,23 @@
 
   function showBanner(){
     if (!document.body) return;
+    if (banner) {
+      banner.classList.add('is-visible');
+      return;
+    }
     banner = document.createElement('section');
     banner.className = 'consent-banner';
     banner.setAttribute('role','dialog');
-    banner.setAttribute('aria-label','Cookie consent');
+    banner.setAttribute('aria-label','쿠키 동의 설정');
     banner.innerHTML = ''
-      + '<p class=\"consent-banner__title\">쿠키 사용에 동의하시나요?</p>'
-      + '<p style=\"margin:6px 0 0; line-height:1.5; color:#374151\">사이트 개선을 위해 Google Analytics를 사용합니다. 동의하시면 분석 쿠키가 설정됩니다.</p>'
+      + '<p class=\"consent-banner__title\">쿠키 사용에 동의하시겠어요?</p>'
+      + '<p style=\"margin:6px 0 0; line-height:1.5; color:#374151\">사이트 개선을 위해 Google Analytics를 사용합니다. 동의하시면 방문 분석용 쿠키가 설정됩니다.</p>'
       + '<div class=\"consent-banner__actions\">'
       + '  <button type=\"button\" class=\"btn btn-outline\" data-consent-reject>거부</button>'
       + '  <button type=\"button\" class=\"btn\" data-consent-accept>동의</button>'
       + '</div>'
       + '<p class=\"consent-banner__links\">'
-      + '  <a href=\"https://french-in-seoul.com/개인정보-처리방침/\" target=\"_blank\" rel=\"noopener\">개인정보 처리방침</a>'
+      + '  <a href=\"https://french-in-seoul.com/개인정보-처리방침/\" target=\"_blank\" rel=\"noopener\">개인정보처리방침</a>'
       + '</p>';
     document.body.appendChild(banner);
     setTimeout(function(){ banner.classList.add('is-visible'); }, 20);
@@ -78,14 +84,31 @@
     if (rejectBtn) rejectBtn.addEventListener('click', function(){ applyChoice(CONSENT_DENIED); });
   }
 
+  function addSettingsButton(){
+    if (settingsButton || !document.body) return;
+    var footerInner = document.querySelector('.site-footer__inner');
+    if (!footerInner) return;
+
+    settingsButton = document.createElement('button');
+    settingsButton.type = 'button';
+    settingsButton.className = 'cookie-settings';
+    settingsButton.textContent = '쿠키 설정';
+    settingsButton.addEventListener('click', showBanner);
+
+    var target = footerInner.querySelector('p:last-child') || footerInner;
+    target.appendChild(settingsButton);
+  }
+
   var storedChoice = getStoredConsent();
   if (storedChoice === CONSENT_GRANTED){
     updateConsent(CONSENT_GRANTED);
     bootAnalytics();
+    addSettingsButton();
     return;
   }
   if (storedChoice === CONSENT_DENIED){
     updateConsent(CONSENT_DENIED);
+    addSettingsButton();
     return;
   }
 
