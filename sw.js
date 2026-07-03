@@ -1,4 +1,4 @@
-const CACHE_NAME = 'fis-static-v2026-06-14-consent';
+const CACHE_NAME = 'fis-static-v2026-07-03-guide-redirect';
 const PRECACHE_URLS = [
   '/',
   '/index.html',
